@@ -21,5 +21,3 @@ include("lesson7")
 include("lesson8")
 include("lesson9")
 include("lesson10")
-
-include("lesson11-Practice")
