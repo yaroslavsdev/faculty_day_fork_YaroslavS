@@ -248,10 +248,8 @@ object StructuredConcurrency {
 object WithContextIO {
     fun run(filePaths: List<String>): Map<String, String> = runBlocking {
         filePaths.associateWith { path ->
-            async {
-                withContext(Dispatchers.IO) {
-                    File(path).readText()
-                }
+            async(Dispatchers.IO) {
+                File(path).readText()
             }
         }.mapValues { it.value.await() }
     }
